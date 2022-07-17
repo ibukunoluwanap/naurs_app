@@ -1,16 +1,29 @@
-# naurs
+# Naurs Project
 
-A Fitness, Music, Fine Art & Dance Studio
+Naurs is a gym and music learning application build for the Naurs company located at Bay Avenue Park Dubai, UEA.
 
-## Getting Started
+### Gym.
+The gym category of the naurs application consists of classes(programs) like;
 
-This project is a starting point for a Flutter application.
+- ***Yoga*** (pre & post natal yoga, aerial yoga, wheel yoga e.t.c)
+- ***Kids Gymnastic***
+- ****Kangoo Jump****
 
-A few resources to get you started if this is your first Flutter project:
+### Music.
+The music category of the naurs application consists of classes(programs) like;
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- ***Vocal***
+- ***Keyboard Electronic***
+- ***Guitar***
+- ***Piano***
+- ***Saxophone***
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Art.
+The art category of the naurs application consists of classes(programs) like;
+
+- ***Kids Speech & Personality Development*** `coming soon`
+- ***Theater & Drama*** `coming soon`
+- ***Painting***
+- ***Indian Classical Dance form***
+- ***Bollywood Dance***
+- ***Bollywood Dance***
