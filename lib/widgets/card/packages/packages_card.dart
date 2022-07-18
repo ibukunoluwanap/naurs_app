@@ -5,7 +5,6 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:naurs/utils/colors.dart';
 import 'package:naurs/utils/html_parse.dart';
 import 'package:naurs/widgets/button/button.dart';
-import 'package:shimmer/shimmer.dart';
 
 class PackagesCard extends StatefulWidget {
   const PackagesCard({Key? key, this.classItem}) : super(key: key);
@@ -83,7 +82,7 @@ class _PackagesCardState extends State<PackagesCard> {
               right: (dWidth / 100) * 2,
               child: Container(
                 padding:
-                const EdgeInsets.symmetric(vertical: 3.0, horizontal: 6),
+                    const EdgeInsets.symmetric(vertical: 3.0, horizontal: 6),
                 decoration: BoxDecoration(
                   color: classItem.isMine ? pink : secondary,
                   borderRadius: BorderRadius.circular(3.0),
@@ -167,7 +166,7 @@ Future classDetail(context, classItem, dWidth, dHeight) {
                                 "${classItem.category} | ${classItem.initialPrice} AED",
                                 overflow: TextOverflow.ellipsis,
                                 style:
-                                const TextStyle(fontSize: 10, color: pink),
+                                    const TextStyle(fontSize: 10, color: pink),
                               ),
                               Text(
                                 classItem.updatedOn,
@@ -249,6 +248,70 @@ Future classDetail(context, classItem, dWidth, dHeight) {
                   children: [
                     Row(
                       children: const [
+                        Icon(Icons.schedule, color: pink, size: 20.0),
+                        SizedBox(width: 10.0),
+                        Text(
+                          "Kid Sessions",
+                          style: TextStyle(
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.bold,
+                              color: primary),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "${classItem.kidSessions}",
+                      style: const TextStyle(
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.bold,
+                          color: primary),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                constraints: BoxConstraints(maxHeight: (dHeight / 100) * 30),
+                margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
+                padding: const EdgeInsets.all(15.0),
+                decoration: BoxDecoration(
+                    color: grey, borderRadius: BorderRadius.circular(10.0)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: const [
+                        Icon(Icons.schedule, color: pink, size: 20.0),
+                        SizedBox(width: 10.0),
+                        Text(
+                          "Old Sessions",
+                          style: TextStyle(
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.bold,
+                              color: primary),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      "${classItem.oldSessions}",
+                      style: const TextStyle(
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.bold,
+                          color: primary),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                constraints: BoxConstraints(maxHeight: (dHeight / 100) * 30),
+                margin: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(15.0),
+                decoration: BoxDecoration(
+                    color: grey, borderRadius: BorderRadius.circular(10.0)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: const [
                         Icon(FontAwesomeIcons.building,
                             color: pink, size: 20.0),
                         SizedBox(width: 10.0),
@@ -271,47 +334,6 @@ Future classDetail(context, classItem, dWidth, dHeight) {
                   ],
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
-                child: const Text(
-                  "Benefits",
-                  style: TextStyle(
-                      fontSize: 12.0,
-                      fontWeight: FontWeight.bold,
-                      color: primary),
-                ),
-              ),
-              Container(
-                constraints: BoxConstraints(maxHeight: (dHeight / 100) * 15),
-                margin: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 20.0),
-                padding: const EdgeInsets.all(15.0),
-                decoration: BoxDecoration(
-                  color: grey,
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            "• ",
-                          ),
-                          Expanded(
-                            child: Text(
-                              "$index",
-                              style:
-                              const TextStyle(color: primary, fontSize: 12),
-                            ),
-                          )
-                        ],
-                      );
-                    }),
-              ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 30.0),
                 child: button(
@@ -325,21 +347,6 @@ Future classDetail(context, classItem, dWidth, dHeight) {
           ),
         ),
       ),
-    ),
-  );
-}
-
-//shimmer
-Widget packagesCardShimmer() {
-  return Shimmer.fromColors(
-    baseColor: Colors.grey.shade300,
-    highlightColor: grey,
-    period: const Duration(seconds: 2),
-    child: Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration:
-      BoxDecoration(color: grey, borderRadius: BorderRadius.circular(10.0)),
     ),
   );
 }

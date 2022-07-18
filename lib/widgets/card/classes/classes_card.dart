@@ -5,7 +5,6 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:naurs/utils/colors.dart';
 import 'package:naurs/utils/html_parse.dart';
 import 'package:naurs/widgets/button/button.dart';
-import 'package:shimmer/shimmer.dart';
 
 class ClassesCard extends StatefulWidget {
   const ClassesCard({Key? key, this.classItem}) : super(key: key);
@@ -109,6 +108,7 @@ class _ClassesCardState extends State<ClassesCard> {
   }
 }
 
+// class detail information
 Future classDetail(context, classItem, dWidth, dHeight) {
   return showCupertinoModalBottomSheet(
     context: context,
@@ -325,21 +325,6 @@ Future classDetail(context, classItem, dWidth, dHeight) {
           ),
         ),
       ),
-    ),
-  );
-}
-
-//shimmer
-Widget classesCardShimmer() {
-  return Shimmer.fromColors(
-    baseColor: Colors.grey.shade300,
-    highlightColor: grey,
-    period: const Duration(seconds: 2),
-    child: Container(
-      width: double.infinity,
-      height: double.infinity,
-      decoration:
-          BoxDecoration(color: grey, borderRadius: BorderRadius.circular(10.0)),
     ),
   );
 }

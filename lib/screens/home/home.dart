@@ -12,6 +12,7 @@ import 'package:naurs/widgets/card/classes/classes_card.dart';
 import 'package:naurs/widgets/card/home/selector_card.dart';
 import 'package:naurs/widgets/card/home/to_do_card.dart';
 import 'package:naurs/widgets/card/packages/packages_card.dart';
+import 'package:naurs/widgets/shimmer/rectangle.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -269,7 +270,7 @@ class _HomeState extends State<Home> {
                     var classItem = newClassesList[index];
                     return isScreenLoaded
                         ? ClassesCard(classItem: classItem)
-                        : classesCardShimmer();
+                        : const RectangleShimmer();
                   },
                 ),
               )
@@ -330,7 +331,7 @@ class _HomeState extends State<Home> {
                       var classItem = newPackagesList[index];
                       return isScreenLoaded
                           ? PackagesCard(classItem: classItem)
-                          : packagesCardShimmer();
+                          : const RectangleShimmer();
                     }))
             : Container(
                 padding: const EdgeInsets.all(10.0),

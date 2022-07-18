@@ -34,6 +34,4 @@ Widget todoCard(Todo todoItem) {
   );
 }
 
-void _test(BuildContext context) {
-  print("object");
-}
+void _test(BuildContext context) {}
