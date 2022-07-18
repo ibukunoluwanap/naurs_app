@@ -1,9 +1,6 @@
 import 'dart:async';
-
-import 'package:blur_bottom_bar/blur_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:naurs/models/test_models.dart';
 import 'package:naurs/utils/colors.dart';
 import 'package:naurs/widgets/app_bar/sliver_app_bar.dart';
@@ -12,6 +9,7 @@ import 'package:naurs/widgets/card/classes/classes_card.dart';
 import 'package:naurs/widgets/card/home/selector_card.dart';
 import 'package:naurs/widgets/card/home/to_do_card.dart';
 import 'package:naurs/widgets/card/packages/packages_card.dart';
+import 'package:naurs/widgets/navigation/fixed_navigation_bar.dart';
 import 'package:naurs/widgets/shimmer/rectangle.dart';
 
 class Home extends StatefulWidget {
@@ -113,41 +111,45 @@ class _HomeState extends State<Home> {
     final dHeight = MediaQuery.of(context).size.height;
     final dWidth = MediaQuery.of(context).size.width;
 
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-        value: const SystemUiOverlayStyle(
-          statusBarColor: secondary,
-          statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness: Brightness.dark,
-          systemNavigationBarDividerColor: Colors.transparent,
-        ),
-        child: Scaffold(
-          backgroundColor: secondary,
-          body: Stack(
-            children: [
-              CustomScrollView(
-                physics: const BouncingScrollPhysics(),
-                slivers: [
-                  sliverAppBar(),
-                  SliverToBoxAdapter(
-                    child: Container(
-                      margin: const EdgeInsets.only(top: 10.0, bottom: 50.0),
-                      child: Column(
-                        children: [
-                          _buildCategoryFilter(dWidth, dHeight),
-                          _buildTodo(dWidth, dHeight),
-                          _buildSelectorFilter(dWidth),
-                          _buildClasses(dWidth, dHeight),
-                          _buildPackages(dWidth, dHeight),
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              _buildBottomNavigation(),
-            ],
+    return WillPopScope(
+      onWillPop: () => Future.value(false),
+      child: AnnotatedRegion<SystemUiOverlayStyle>(
+          value: const SystemUiOverlayStyle(
+            statusBarColor: secondary,
+            statusBarBrightness: Brightness.dark,
+            statusBarIconBrightness: Brightness.dark,
+            systemNavigationBarDividerColor: Colors.transparent,
           ),
-        ));
+          child: Scaffold(
+            backgroundColor: secondary,
+            body: Stack(
+              children: [
+                CustomScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  slivers: [
+                    sliverAppBar(),
+                    SliverToBoxAdapter(
+                      child: Container(
+                        margin: const EdgeInsets.only(top: 10.0, bottom: 50.0),
+                        child: Column(
+                          children: [
+                            _buildCategoryFilter(dWidth, dHeight),
+                            _buildTodo(dWidth, dHeight),
+                            _buildSelectorFilter(dWidth),
+                            _buildClasses(dWidth, dHeight),
+                            _buildPackages(dWidth, dHeight),
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                // _buildBottomNavigation(),
+                const FixedNavigationBar(selectedPage: 0),
+              ],
+            ),
+          )),
+    );
   }
 
   Widget _buildCategoryFilter(dWidth, dHeight) => SizedBox(
@@ -357,41 +359,6 @@ class _HomeState extends State<Home> {
     }
     return innerFinalWidget;
   }
-
-  Widget _buildBottomNavigation() => BlurBottomView(
-        onIndexChange: (value) {},
-        filterX: 4.0,
-        filterY: 4.0,
-        backgroundColor: primary,
-        selectedItemColor: pink,
-        unselectedItemColor: secondary,
-        bottomNavigationBarItems: const [
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.house, size: 20),
-            label: "Home",
-            tooltip: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.cartShopping, size: 20),
-            label: "Buy",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.calendarDays, size: 20),
-            label: "Book",
-            tooltip: "Book",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.peopleGroup, size: 20),
-            label: "1-On-1",
-            tooltip: "1-On-1",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.user, size: 20),
-            label: "Account",
-            tooltip: "Account",
-          ),
-        ],
-      );
 }
 
 class CategoryFilter {
