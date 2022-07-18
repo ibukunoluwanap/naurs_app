@@ -173,6 +173,7 @@ class _LoginState extends State<Login> {
                   // form data
                   _email;
                   _password;
+                  Navigator.pushNamed(context, "home");
                   setState(() {
                     _loader = false;
                   });

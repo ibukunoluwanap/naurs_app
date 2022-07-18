@@ -12,6 +12,7 @@ Future privacyPolicies(context, dHeight) {
       child: Scaffold(
         backgroundColor: secondary,
         body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           padding: const EdgeInsets.all(10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
