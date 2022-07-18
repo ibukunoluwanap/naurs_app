@@ -1,11 +1,12 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:naurs/models/test_models.dart';
 import 'package:naurs/utils/colors.dart';
 import 'package:naurs/widgets/app_bar/sliver_app_bar.dart';
-import 'package:naurs/widgets/card/home/category_card.dart';
 import 'package:naurs/widgets/card/classes/classes_card.dart';
+import 'package:naurs/widgets/card/home/category_card.dart';
 import 'package:naurs/widgets/card/home/selector_card.dart';
 import 'package:naurs/widgets/card/home/to_do_card.dart';
 import 'package:naurs/widgets/card/packages/packages_card.dart';

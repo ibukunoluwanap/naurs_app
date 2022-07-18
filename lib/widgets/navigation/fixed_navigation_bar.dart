@@ -1,6 +1,6 @@
+import 'package:blur_bottom_bar/blur_bottom_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:blur_bottom_bar/blur_bottom_bar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:naurs/screens/account/account.dart';
 import 'package:naurs/screens/authentication/login/login.dart';

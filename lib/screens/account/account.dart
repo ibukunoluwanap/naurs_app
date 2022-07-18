@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:naurs/utils/colors.dart';
@@ -55,7 +56,11 @@ class _AccountState extends State<Account> {
                         child: Column(
                           children: const [
                             Text("Account"),
-                            Icon(Icons.person, size: 50, color: grey,)
+                            Icon(
+                              Icons.person,
+                              size: 50,
+                              color: grey,
+                            )
                           ],
                         ),
                       ),
