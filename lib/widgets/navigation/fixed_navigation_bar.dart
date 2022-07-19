@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:naurs/screens/account/account.dart';
 import 'package:naurs/screens/authentication/register/register.dart';
 import 'package:naurs/screens/authentication/selector.dart';
+import 'package:naurs/screens/book/book.dart';
 import 'package:naurs/screens/buy/buy.dart';
 import 'package:naurs/screens/home/home.dart';
 import 'package:naurs/utils/colors.dart';
@@ -73,8 +74,8 @@ class _FixedNavigationBarState extends State<FixedNavigationBar> {
         Navigator.of(context).push(
             NoAnimationMaterialPageRoute(builder: (context) => const Buy()));
       } else if (index == 2) {
-        Navigator.of(context).push(NoAnimationMaterialPageRoute(
-            builder: (context) => const Register()));
+        Navigator.of(context).push(
+            NoAnimationMaterialPageRoute(builder: (context) => const Book()));
       } else if (index == 3) {
         Navigator.of(context).push(NoAnimationMaterialPageRoute(
             builder: (context) => const Selector()));
