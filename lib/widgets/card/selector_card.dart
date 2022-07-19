@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:naurs/screens/home/home.dart';
+import 'package:naurs/models/selector.dart';
 import 'package:naurs/utils/colors.dart';
 
-Widget selectorCard(dWidth, SelectorFilter selectorItem) {
+Widget selectorCard(dWidth, SelectorFilter selector) {
   return Container(
     width: (dWidth / 100) * 45.0,
     padding: const EdgeInsets.all(10.0),
@@ -12,9 +12,9 @@ Widget selectorCard(dWidth, SelectorFilter selectorItem) {
     ),
     child: Center(
       child: Text(
-        selectorItem.title,
+        selector.title,
         style: TextStyle(
-            fontSize: 14.0, color: selectorItem.isSelected ? pink : secondary),
+            fontSize: 14.0, color: selector.isSelected ? pink : secondary),
       ),
     ),
   );

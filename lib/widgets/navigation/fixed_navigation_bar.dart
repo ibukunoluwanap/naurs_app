@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:naurs/screens/account/account.dart';
-import 'package:naurs/screens/authentication/login/login.dart';
 import 'package:naurs/screens/authentication/register/register.dart';
 import 'package:naurs/screens/authentication/selector.dart';
+import 'package:naurs/screens/buy/buy.dart';
 import 'package:naurs/screens/home/home.dart';
 import 'package:naurs/utils/colors.dart';
 import 'package:naurs/widgets/navigation/route.dart';
@@ -71,7 +71,7 @@ class _FixedNavigationBarState extends State<FixedNavigationBar> {
             NoAnimationMaterialPageRoute(builder: (context) => const Home()));
       } else if (index == 1) {
         Navigator.of(context).push(
-            NoAnimationMaterialPageRoute(builder: (context) => const Login()));
+            NoAnimationMaterialPageRoute(builder: (context) => const Buy()));
       } else if (index == 2) {
         Navigator.of(context).push(NoAnimationMaterialPageRoute(
             builder: (context) => const Register()));

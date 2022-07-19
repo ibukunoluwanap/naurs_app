@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:naurs/screens/home/home.dart';
+import 'package:naurs/models/todo.dart';
 import 'package:naurs/utils/colors.dart';
 
 Widget todoCard(Todo todoItem) {

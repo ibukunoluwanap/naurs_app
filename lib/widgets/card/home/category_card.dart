@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:naurs/screens/home/home.dart';
+import 'package:naurs/models/category.dart';
 import 'package:naurs/utils/colors.dart';
 
-Widget categoryCard(dWidth, CategoryFilter categoryItem, int index) {
+Widget categoryCard(dWidth, CategoryFilter category, int index) {
   return Container(
     width: (dWidth / 100) * 40,
     margin: EdgeInsets.only(left: index != 0 ? 5.0 : 10.0, right: 5.0),
@@ -12,9 +12,9 @@ Widget categoryCard(dWidth, CategoryFilter categoryItem, int index) {
     ),
     child: Center(
       child: Text(
-        categoryItem.title,
+        category.title,
         style: TextStyle(
-            fontSize: 16.0, color: categoryItem.isSelected ? pink : secondary),
+            fontSize: 16.0, color: category.isSelected ? pink : secondary),
       ),
     ),
   );
