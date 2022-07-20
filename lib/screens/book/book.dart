@@ -17,8 +17,6 @@ class Book extends StatefulWidget {
 }
 
 class _BookState extends State<Book> {
-  int selectedSelector = 0;
-
   bool isScreenLoaded = false;
 
   List<ClassesModel> classesList = <ClassesModel>[];
@@ -49,6 +47,149 @@ class _BookState extends State<Book> {
         updatedOn: "20/4/2022",
         desc:
             """ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus non sem ante. Aenean consequat ante. Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna. ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante."""));
+    classesList.add(ClassesModel(
+        isMine: false,
+        image: "assets/img/test2.png",
+        name: "Class Name",
+        sessions: 3,
+        category: "Fine Arts",
+        price: 250.00,
+        availableSpace: 6,
+        updatedOn: "20/4/2022",
+        desc:
+            """ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus non sem ante. Aenean consequat ante. Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna. ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante."""));
+    classesList.add(ClassesModel(
+        isMine: false,
+        image: "assets/img/test2.png",
+        name: "Class Name",
+        sessions: 3,
+        category: "Fine Arts",
+        price: 250.00,
+        availableSpace: 6,
+        updatedOn: "20/4/2022",
+        desc:
+            """ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus non sem ante. Aenean consequat ante. Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna. ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante."""));
+    classesList.add(ClassesModel(
+        isMine: false,
+        image: "assets/img/test2.png",
+        name: "Class Name",
+        sessions: 3,
+        category: "Fine Arts",
+        price: 250.00,
+        availableSpace: 6,
+        updatedOn: "20/4/2022",
+        desc:
+            """ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus non sem ante. Aenean consequat ante. Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna. ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante."""));
+    classesList.add(ClassesModel(
+        isMine: false,
+        image: "assets/img/test2.png",
+        name: "Class Name",
+        sessions: 3,
+        category: "Fine Arts",
+        price: 250.00,
+        availableSpace: 6,
+        updatedOn: "20/4/2022",
+        desc:
+            """ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus non sem ante. Aenean consequat ante. Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna. ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante."""));
+    classesList.add(ClassesModel(
+        isMine: false,
+        image: "assets/img/test2.png",
+        name: "Class Name",
+        sessions: 3,
+        category: "Fine Arts",
+        price: 250.00,
+        availableSpace: 6,
+        updatedOn: "20/4/2022",
+        desc:
+            """ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus non sem ante. Aenean consequat ante. Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna. ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante."""));
+    classesList.add(ClassesModel(
+        isMine: false,
+        image: "assets/img/test2.png",
+        name: "Class Name",
+        sessions: 3,
+        category: "Fine Arts",
+        price: 250.00,
+        availableSpace: 6,
+        updatedOn: "20/4/2022",
+        desc:
+            """ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus non sem ante. Aenean consequat ante. Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna. ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante."""));
+    classesList.add(ClassesModel(
+        isMine: true,
+        image: "assets/img/test1.png",
+        name: "Class Name",
+        sessions: 2,
+        category: "Dance",
+        price: 170.00,
+        availableSpace: 10,
+        updatedOn: "20/4/2022",
+        desc:
+            """Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante."""));
+    classesList.add(ClassesModel(
+        isMine: true,
+        image: "assets/img/test1.png",
+        name: "Class Name",
+        sessions: 2,
+        category: "Dance",
+        price: 170.00,
+        availableSpace: 10,
+        updatedOn: "20/4/2022",
+        desc:
+            """Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante."""));
+    classesList.add(ClassesModel(
+        isMine: true,
+        image: "assets/img/test1.png",
+        name: "Class Name",
+        sessions: 2,
+        category: "Dance",
+        price: 170.00,
+        availableSpace: 10,
+        updatedOn: "20/4/2022",
+        desc:
+            """Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante."""));
+    classesList.add(ClassesModel(
+        isMine: true,
+        image: "assets/img/test1.png",
+        name: "Class Name",
+        sessions: 2,
+        category: "Dance",
+        price: 170.00,
+        availableSpace: 10,
+        updatedOn: "20/4/2022",
+        desc:
+            """Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante."""));
+    classesList.add(ClassesModel(
+        isMine: true,
+        image: "assets/img/test1.png",
+        name: "Class Name",
+        sessions: 2,
+        category: "Dance",
+        price: 170.00,
+        availableSpace: 10,
+        updatedOn: "20/4/2022",
+        desc:
+            """Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante."""));
+    classesList.add(ClassesModel(
+        isMine: true,
+        image: "assets/img/test1.png",
+        name: "Class Name",
+        sessions: 2,
+        category: "Dance",
+        price: 170.00,
+        availableSpace: 10,
+        updatedOn: "20/4/2022",
+        desc:
+            """Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante."""));
+    classesList.add(ClassesModel(
+        isMine: true,
+        image: "assets/img/test1.png",
+        name: "Class Name",
+        sessions: 2,
+        category: "Dance",
+        price: 170.00,
+        availableSpace: 10,
+        updatedOn: "20/4/2022",
+        desc:
+            """Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante."""));
 
     loadScreenData();
   }
@@ -83,14 +224,24 @@ class _BookState extends State<Book> {
                     sliverAppBar(),
                     SliverToBoxAdapter(
                       child: Container(
-                        margin: const EdgeInsets.only(top: 10.0, bottom: 50.0),
+                        margin: const EdgeInsets.only(top: 10.0),
+                        padding: const EdgeInsets.all(10.0),
                         child: Column(
-                          children: [
-                            _buildClasses(dWidth, dHeight),
+                          children: const [
+                            Text(
+                              "11 June 2022",
+                              style: TextStyle(
+                                  fontSize: 12.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: primary),
+                            )
                           ],
                         ),
                       ),
-                    )
+                    ),
+                    _buildClasses(dWidth, dHeight),
+                    SliverPadding(
+                        padding: EdgeInsets.only(bottom: (dWidth / 100) * 30))
                   ],
                 ),
                 // _buildBottomNavigation(),
@@ -105,42 +256,40 @@ class _BookState extends State<Book> {
     // setting default return widget
     Widget innerFinalWidget = const SizedBox.shrink();
 
-    // setting valid widget return
     innerFinalWidget = classesList.isNotEmpty
-        ? Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: ListView.builder(
-              itemCount: classesList.length,
-              shrinkWrap: true,
-              padding: EdgeInsets.zero,
-              physics: const BouncingScrollPhysics(),
-              itemBuilder: (BuildContext context, int index) {
-                var classItem = classesList[index];
-                return isScreenLoaded
-                    ? ClassesListCard(classItem: classItem)
-                    : const RectangleShimmer();
-              },
-            ),
+        ? SliverList(
+            delegate: SliverChildBuilderDelegate((context, index) {
+              var classItem = classesList[index];
+              return isScreenLoaded
+                  ? Container(
+                      margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
+                      child: ClassesListCard(classItem: classItem))
+                  : Container(
+                      margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
+                      child: RectangleShimmer(height: (dHeight / 100) * 8));
+            }, childCount: classesList.length),
           )
-        : Container(
-            padding: const EdgeInsets.all(10.0),
-            alignment: Alignment.center,
-            child: Column(
-              children: const [
-                Icon(
-                  Icons.folder_delete_rounded,
-                  size: 100.0,
-                  color: grey,
-                ),
-                Text(
-                  "Not class available for selected category!",
-                  style: TextStyle(
-                    fontSize: 14.0,
-                    color: Colors.grey,
-                  ),
-                )
-              ],
-            ));
+        : SliverToBoxAdapter(
+            child: Container(
+                padding: const EdgeInsets.all(10.0),
+                alignment: Alignment.center,
+                child: Column(
+                  children: const [
+                    Icon(
+                      Icons.folder_delete_rounded,
+                      size: 100.0,
+                      color: grey,
+                    ),
+                    Text(
+                      "No class available!",
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        color: Colors.grey,
+                      ),
+                    )
+                  ],
+                )),
+          );
     return innerFinalWidget;
   }
 }

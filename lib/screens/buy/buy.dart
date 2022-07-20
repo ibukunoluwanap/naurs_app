@@ -119,7 +119,8 @@ class _BuyState extends State<Buy> {
                     sliverAppBar(),
                     SliverToBoxAdapter(
                       child: Container(
-                        margin: const EdgeInsets.only(top: 10.0, bottom: 50.0),
+                        margin: EdgeInsets.only(
+                            top: 10.0, bottom: (dHeight / 100) * 20),
                         child: Column(
                           children: [
                             _buildSelectorFilter(dWidth),
@@ -202,7 +203,7 @@ class _BuyState extends State<Buy> {
                       color: grey,
                     ),
                     Text(
-                      "Not class available for selected category!",
+                      "No class available for selected category!",
                       style: TextStyle(
                         fontSize: 14.0,
                         color: Colors.grey,
@@ -254,7 +255,7 @@ class _BuyState extends State<Buy> {
                       color: grey,
                     ),
                     Text(
-                      "Not packages available for selected category!",
+                      "No packages available for selected category!",
                       style: TextStyle(
                         fontSize: 14.0,
                         color: Colors.grey,

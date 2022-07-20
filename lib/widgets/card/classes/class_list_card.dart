@@ -26,83 +26,71 @@ class _ClassesListCardState extends State<ClassesListCard> {
         Feedback.forTap(context);
         classDetail(context, classItem, dWidth, dHeight);
       },
-      child: Stack(
-        children: [
-          Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(classItem.image),
-                )),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            width: (dWidth / 100) * 40,
-            child: BlurryContainer(
-              blur: 5,
-              color: primary.withOpacity(.5),
-              padding: const EdgeInsets.all(5.0),
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(10.0),
-                bottomRight: Radius.circular(5.0),
-                topRight: Radius.circular(5.0),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    classItem.name,
-                    style: const TextStyle(
-                      fontSize: 10,
-                      color: secondary,
-                      overflow: TextOverflow.ellipsis,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    parseHtmlString(classItem.desc),
-                    maxLines: 3,
-                    style: const TextStyle(
-                      fontSize: 8,
-                      color: secondary,
-                      overflow: TextOverflow.ellipsis,
-                      fontWeight: FontWeight.w100,
-                    ),
-                  )
-                ],
-              ),
+      child: ListTile(
+        tileColor: grey,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        contentPadding: const EdgeInsets.all(5.0),
+        leading: Container(
+          width: 50.0,
+          height: 50.0,
+          decoration: BoxDecoration(
+            border: Border.all(width: 1.0, color: pink),
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(classItem.image),
             ),
           ),
-          Positioned(
-              top: (dHeight / 100) * 1,
-              right: (dWidth / 100) * 2,
-              child: Container(
-                padding:
-                const EdgeInsets.symmetric(vertical: 3.0, horizontal: 6),
-                decoration: BoxDecoration(
-                  color: classItem.isMine ? pink : secondary,
-                  borderRadius: BorderRadius.circular(3.0),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.25),
-                      offset: const Offset(0, 4),
-                      blurRadius: 6,
-                      spreadRadius: -3,
-                    )
-                  ],
+        ),
+        title: Column(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  classItem.name,
+                  style: const TextStyle(
+                    fontSize: 10,
+                    color: primary,
+                    overflow: TextOverflow.ellipsis,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                child: Text(
-                  "${classItem.price} AED",
-                  style: TextStyle(
-                      fontSize: 8.0,
-                      color: classItem.isMine ? secondary : pink),
+                Text(
+                  classItem.name,
+                  style: const TextStyle(
+                    fontSize: 8,
+                    color: pink,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
-              )),
-        ],
+                Text(
+                  parseHtmlString(classItem.desc),
+                  maxLines: 2,
+                  style: const TextStyle(
+                    fontSize: 8,
+                    color: primary,
+                    overflow: TextOverflow.ellipsis,
+                    fontWeight: FontWeight.w100,
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
+        trailing: IconButton(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          onPressed: () {},
+          padding: EdgeInsets.zero,
+          constraints: const BoxConstraints(),
+          icon: const Icon(
+            Icons.more_vert_rounded,
+            color: pink,
+          ),
+        ),
       ),
     );
   }
@@ -167,7 +155,7 @@ Future classDetail(context, classItem, dWidth, dHeight) {
                                 "${classItem.category} | ${classItem.price} AED",
                                 overflow: TextOverflow.ellipsis,
                                 style:
-                                const TextStyle(fontSize: 10, color: pink),
+                                    const TextStyle(fontSize: 10, color: pink),
                               ),
                               Text(
                                 classItem.updatedOn,
@@ -305,7 +293,7 @@ Future classDetail(context, classItem, dWidth, dHeight) {
                             child: Text(
                               "$index",
                               style:
-                              const TextStyle(color: primary, fontSize: 12),
+                                  const TextStyle(color: primary, fontSize: 12),
                             ),
                           )
                         ],
