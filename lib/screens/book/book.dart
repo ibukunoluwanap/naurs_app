@@ -241,7 +241,7 @@ class _BookState extends State<Book> {
                     ),
                     _buildClasses(dWidth, dHeight),
                     SliverPadding(
-                        padding: EdgeInsets.only(bottom: (dWidth / 100) * 30))
+                        padding: EdgeInsets.only(bottom: (dHeight / 100) * 20))
                   ],
                 ),
                 // _buildBottomNavigation(),

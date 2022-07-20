@@ -181,8 +181,7 @@ class _BuyState extends State<Buy> {
                     crossAxisCount: 2,
                     mainAxisSpacing: 5,
                     crossAxisSpacing: 5,
-                    childAspectRatio: MediaQuery.of(context).size.width /
-                        (MediaQuery.of(context).size.height / 1.8),
+                    childAspectRatio: dWidth / (dHeight / 1.8),
                   ),
                   itemBuilder: (BuildContext context, int index) {
                     var classItem = classesList[index];
@@ -235,8 +234,7 @@ class _BuyState extends State<Buy> {
                       crossAxisCount: 2,
                       mainAxisSpacing: 5,
                       crossAxisSpacing: 5,
-                      childAspectRatio: MediaQuery.of(context).size.width /
-                          (MediaQuery.of(context).size.height / 1.8),
+                      childAspectRatio: dWidth / (dHeight / 1.8),
                     ),
                     itemBuilder: (BuildContext context, int index) {
                       var classItem = packagesList[index];
