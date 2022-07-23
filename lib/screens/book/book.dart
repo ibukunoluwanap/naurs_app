@@ -272,9 +272,10 @@ class _BookState extends State<Book> {
 
   Widget _buildCalendar(dWidth, dHeight) {
     return SliverToBoxAdapter(
-        child: SizedBox(
+        child: Container(
       width: dWidth,
-      height: (dHeight / 100) * 10,
+      height: (dHeight / 100) * 6,
+      margin: const EdgeInsets.only(top: 20.0),
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
@@ -282,6 +283,8 @@ class _BookState extends State<Book> {
         itemCount: weekList.length,
         itemBuilder: (BuildContext context, int index) {
           var weekItem = weekList[index];
+          int first = weekList.indexOf(weekList.first);
+          int last = weekList.indexOf(weekList.last);
           return GestureDetector(
             onTap: () {
               setState(() {
@@ -293,7 +296,12 @@ class _BookState extends State<Book> {
                 weekItem.isSelected = true;
               });
             },
-            child: weekCard(dWidth, weekItem),
+            child: Padding(
+              padding: EdgeInsets.only(
+                  left: index == first ? 10.0 : 0.0,
+                  right: index == last ? 10.0 : 0.0),
+              child: weekCard(dWidth, weekItem),
+            ),
           );
         },
         separatorBuilder: (context, index) => const SizedBox(width: 10.0),
@@ -305,7 +313,7 @@ class _BookState extends State<Book> {
     return SliverToBoxAdapter(
       child: Container(
         alignment: Alignment.center,
-        margin: const EdgeInsets.all(10.0),
+        margin: const EdgeInsets.only(top: 20.0, bottom: 10.0),
         child: const Text(
           "11 June 2022",
           style: TextStyle(

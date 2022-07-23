@@ -134,8 +134,7 @@ class _HomeState extends State<Home> {
                     sliverAppBar(),
                     SliverToBoxAdapter(
                       child: Container(
-                        margin: EdgeInsets.only(
-                            top: 10.0, bottom: (dHeight / 100) * 20),
+                        margin: EdgeInsets.only(bottom: (dHeight / 100) * 20),
                         child: Column(
                           children: [
                             _buildCategoryFilter(dWidth, dHeight),
@@ -149,7 +148,6 @@ class _HomeState extends State<Home> {
                     )
                   ],
                 ),
-                
                 const FixedNavigationBar(selectedPage: 0),
               ],
             ),
@@ -157,31 +155,41 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget _buildCategoryFilter(dWidth, dHeight) => SizedBox(
-        width: dWidth,
-        height: (dHeight / 100) * 10.0,
-        child: ListView.builder(
-          physics: const BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          shrinkWrap: true,
-          itemCount: categoryList.length,
-          itemBuilder: (BuildContext context, int index) {
-            var categoryItem = categoryList[index];
-            return GestureDetector(
-              onTap: () {
-                setState(() {
-                  for (var item in categoryList) {
-                    item.isSelected = false;
-                  }
-                  selectedCategory = categoryItem.title;
-                  categoryItem.isSelected = true;
-                });
-              },
-              child: categoryCard(dWidth, categoryItem, index),
-            );
-          },
-        ),
-      );
+  Widget _buildCategoryFilter(dWidth, dHeight) {
+    return Container(
+      width: dWidth,
+      height: (dHeight / 100) * 10.0,
+      margin: const EdgeInsets.only(top: 20.0),
+      child: ListView.separated(
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+        itemCount: categoryList.length,
+        itemBuilder: (BuildContext context, int index) {
+          var categoryItem = categoryList[index];
+          int first = categoryList.indexOf(categoryList.first);
+          int last = categoryList.indexOf(categoryList.last);
+          return GestureDetector(
+            onTap: () {
+              setState(() {
+                for (var item in categoryList) {
+                  item.isSelected = false;
+                }
+                selectedCategory = categoryItem.title;
+                categoryItem.isSelected = true;
+              });
+            },
+            child: Padding(
+                padding: EdgeInsets.only(
+                    left: index == first ? 10.0 : 0.0,
+                    right: index == last ? 10.0 : 0.0),
+                child: categoryCard(dWidth, categoryItem, index)),
+          );
+        },
+        separatorBuilder: (context, index) => const SizedBox(width: 10.0),
+      ),
+    );
+  }
 
   Widget _buildTodo(dWidth, dHeight) {
     return isProfileComplete

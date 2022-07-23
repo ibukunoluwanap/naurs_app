@@ -4,8 +4,7 @@ import 'package:naurs/utils/colors.dart';
 
 Widget weekCard(double dWidth, WeekFilter weekItem) {
   return Container(
-    // width: (dWidth / 100) * 20.0,
-    // padding: const EdgeInsets.all(5.0),
+    width: (dWidth / 100) * 20.0,
     decoration: BoxDecoration(
       color: grey,
       border:
