@@ -67,21 +67,29 @@ class _FixedNavigationBarState extends State<FixedNavigationBar> {
 
   void _onChangeScreen(int index) {
     setState(() {
-      if (index == 0) {
+      if (index == 0 && widget.selectedPage != index) {
+        Navigator.of(context)
+            .push(NoAnimationMaterialPageRoute(builder: (_) => const Home()));
+      }
+
+      if (index == 1 && widget.selectedPage != index) {
+        Navigator.of(context)
+            .push(NoAnimationMaterialPageRoute(builder: (_) => const Buy()));
+      }
+
+      if (index == 2 && widget.selectedPage != index) {
+        Navigator.of(context)
+            .push(NoAnimationMaterialPageRoute(builder: (_) => const Book()));
+      }
+
+      if (index == 3 && widget.selectedPage != index) {
         Navigator.of(context).push(
-            NoAnimationMaterialPageRoute(builder: (context) => const Home()));
-      } else if (index == 1) {
+            NoAnimationMaterialPageRoute(builder: (_) => const Selector()));
+      }
+
+      if (index == 4 && widget.selectedPage != index) {
         Navigator.of(context).push(
-            NoAnimationMaterialPageRoute(builder: (context) => const Buy()));
-      } else if (index == 2) {
-        Navigator.of(context).push(
-            NoAnimationMaterialPageRoute(builder: (context) => const Book()));
-      } else if (index == 3) {
-        Navigator.of(context).push(NoAnimationMaterialPageRoute(
-            builder: (context) => const Selector()));
-      } else if (index == 4) {
-        Navigator.of(context).push(NoAnimationMaterialPageRoute(
-            builder: (context) => const Account()));
+            NoAnimationMaterialPageRoute(builder: (_) => const Account()));
       }
     });
   }
