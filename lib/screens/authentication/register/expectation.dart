@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:naurs/models/expectation_choice.dart';
 import 'package:naurs/utils/colors.dart';
 import 'package:naurs/widgets/alert/alert.dart';
 import 'package:naurs/widgets/button/button.dart';
@@ -13,21 +14,24 @@ class Expectation extends StatefulWidget {
 
 class _ExpectationState extends State<Expectation> {
   String myChoice = "";
-  List<Choices> choiceList = <Choices>[];
+  List<ExpectationChoice> choiceList = <ExpectationChoice>[];
 
   @override
   void initState() {
     super.initState();
-    choiceList.add(Choices(choice: "NOT SURE", isSelected: false));
-    choiceList.add(Choices(choice: "Improve Music Skills", isSelected: false));
-    choiceList.add(Choices(choice: "Improve Dance Skills", isSelected: false));
-    choiceList.add(Choices(choice: "Enroll In Aerial Yoga", isSelected: false));
-    choiceList
-        .add(Choices(choice: "Improve Fine Art Skills", isSelected: false));
-    choiceList
-        .add(Choices(choice: "Enroll In Fitness Class", isSelected: false));
-    choiceList
-        .add(Choices(choice: "Enroll In Bollywood Dance", isSelected: false));
+    choiceList.add(ExpectationChoice(choice: "NOT SURE", isSelected: false));
+    choiceList.add(
+        ExpectationChoice(choice: "Improve Music Skills", isSelected: false));
+    choiceList.add(
+        ExpectationChoice(choice: "Improve Dance Skills", isSelected: false));
+    choiceList.add(
+        ExpectationChoice(choice: "Enroll In Aerial Yoga", isSelected: false));
+    choiceList.add(ExpectationChoice(
+        choice: "Improve Fine Art Skills", isSelected: false));
+    choiceList.add(ExpectationChoice(
+        choice: "Enroll In Fitness Class", isSelected: false));
+    choiceList.add(ExpectationChoice(
+        choice: "Enroll In Bollywood Dance", isSelected: false));
   }
 
   @override
@@ -380,7 +384,8 @@ class _ExpectationState extends State<Expectation> {
                 Expanded(
                   child: Align(
                     alignment: Alignment.bottomCenter,
-                    child: Padding(
+                    child: Container(
+                      margin: EdgeInsets.only(bottom: (dHeight / 100) * 2),
                       padding: const EdgeInsets.symmetric(
                           vertical: 20.0, horizontal: 10.0),
                       child: button(
@@ -407,11 +412,4 @@ class _ExpectationState extends State<Expectation> {
   }
 
   bool isValidated() => myChoice.isEmpty ? false : true;
-}
-
-class Choices {
-  String choice;
-  bool isSelected;
-
-  Choices({required this.choice, this.isSelected = false});
 }
