@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:naurs/models/category.dart';
 import 'package:naurs/utils/colors.dart';
 
-Widget categoryCard(dWidth, CategoryFilter category, int index) {
+Widget categoryCard(double dWidth, CategoryFilter category, int index) {
   return Container(
     width: (dWidth / 100) * 40,
     margin: EdgeInsets.only(left: index != 0 ? 5.0 : 10.0, right: 5.0),

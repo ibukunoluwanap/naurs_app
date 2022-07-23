@@ -149,7 +149,7 @@ class _HomeState extends State<Home> {
                     )
                   ],
                 ),
-                // _buildBottomNavigation(),
+                
                 const FixedNavigationBar(selectedPage: 0),
               ],
             ),

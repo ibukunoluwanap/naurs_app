@@ -67,7 +67,7 @@ class _AccountState extends State<Account> {
                     )
                   ],
                 ),
-                // _buildBottomNavigation(),
+                
                 const FixedNavigationBar(selectedPage: 4),
               ],
             ),

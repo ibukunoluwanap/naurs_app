@@ -132,7 +132,7 @@ class _BuyState extends State<Buy> {
                     )
                   ],
                 ),
-                // _buildBottomNavigation(),
+                
                 const FixedNavigationBar(selectedPage: 1),
               ],
             ),

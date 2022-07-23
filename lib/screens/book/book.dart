@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:naurs/models/test_models.dart';
+import 'package:naurs/models/week.dart';
 import 'package:naurs/utils/colors.dart';
 import 'package:naurs/widgets/app_bar/sliver_app_bar.dart';
+import 'package:naurs/widgets/card/book/week_card.dart';
 import 'package:naurs/widgets/card/classes/class_list_card.dart';
 import 'package:naurs/widgets/navigation/fixed_navigation_bar.dart';
 import 'package:naurs/widgets/shimmer/rectangle.dart';
@@ -17,14 +19,46 @@ class Book extends StatefulWidget {
 }
 
 class _BookState extends State<Book> {
+  int selectedDay = 0;
+
   bool isScreenLoaded = false;
 
   List<ClassesModel> classesList = <ClassesModel>[];
+  List<WeekFilter> weekList = <WeekFilter>[];
 
   @override
   void initState() {
     super.initState();
     // Test data
+    weekList.add(WeekFilter(
+      title: "Mon",
+      isSelected: true,
+    ));
+    weekList.add(WeekFilter(
+      title: "Tue",
+      isSelected: false,
+    ));
+    weekList.add(WeekFilter(
+      title: "Wed",
+      isSelected: false,
+    ));
+    weekList.add(WeekFilter(
+      title: "Thur",
+      isSelected: false,
+    ));
+    weekList.add(WeekFilter(
+      title: "Fri",
+      isSelected: false,
+    ));
+    weekList.add(WeekFilter(
+      title: "Sat",
+      isSelected: false,
+    ));
+    weekList.add(WeekFilter(
+      title: "Sun",
+      isSelected: false,
+    ));
+
     classesList.add(ClassesModel(
         isMine: true,
         image: "assets/img/test1.png",
@@ -222,33 +256,62 @@ class _BookState extends State<Book> {
                   physics: const BouncingScrollPhysics(),
                   slivers: [
                     sliverAppBar(),
-                    SliverToBoxAdapter(
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 10.0),
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                          children: const [
-                            Text(
-                              "11 June 2022",
-                              style: TextStyle(
-                                  fontSize: 12.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: primary),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
+                    _buildCalendar(dWidth, dHeight),
+                    _buildDate(),
                     _buildClasses(dWidth, dHeight),
                     SliverPadding(
                         padding: EdgeInsets.only(bottom: (dHeight / 100) * 20))
                   ],
                 ),
-                // _buildBottomNavigation(),
                 const FixedNavigationBar(selectedPage: 2),
               ],
             ),
           )),
+    );
+  }
+
+  Widget _buildCalendar(dWidth, dHeight) {
+    return SliverToBoxAdapter(
+        child: SizedBox(
+      width: dWidth,
+      height: (dHeight / 100) * 10,
+      child: ListView.separated(
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        shrinkWrap: true,
+        itemCount: weekList.length,
+        itemBuilder: (BuildContext context, int index) {
+          var weekItem = weekList[index];
+          return GestureDetector(
+            onTap: () {
+              setState(() {
+                for (var item in weekList) {
+                  item.isSelected = false;
+                }
+                int index = weekList.indexOf(weekItem);
+                selectedDay = index;
+                weekItem.isSelected = true;
+              });
+            },
+            child: weekCard(dWidth, weekItem),
+          );
+        },
+        separatorBuilder: (context, index) => const SizedBox(width: 10.0),
+      ),
+    ));
+  }
+
+  Widget _buildDate() {
+    return SliverToBoxAdapter(
+      child: Container(
+        alignment: Alignment.center,
+        margin: const EdgeInsets.all(10.0),
+        child: const Text(
+          "11 June 2022",
+          style: TextStyle(
+              fontSize: 12.0, fontWeight: FontWeight.bold, color: primary),
+        ),
+      ),
     );
   }
 
