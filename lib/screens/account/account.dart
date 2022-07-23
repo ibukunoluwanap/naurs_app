@@ -37,9 +37,9 @@ class _AccountState extends State<Account> {
       onWillPop: () => Future.value(false),
       child: AnnotatedRegion<SystemUiOverlayStyle>(
           value: const SystemUiOverlayStyle(
-            statusBarColor: secondary,
-            statusBarBrightness: Brightness.dark,
+            statusBarBrightness: Brightness.light,
             statusBarIconBrightness: Brightness.dark,
+            statusBarColor: secondary,
             systemNavigationBarDividerColor: Colors.transparent,
           ),
           child: Scaffold(

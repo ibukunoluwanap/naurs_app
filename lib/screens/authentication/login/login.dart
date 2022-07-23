@@ -27,9 +27,9 @@ class _LoginState extends State<Login> {
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
         statusBarIconBrightness: Brightness.light,
+        statusBarColor: Colors.transparent,
         systemNavigationBarDividerColor: Colors.transparent,
       ),
       child: Scaffold(

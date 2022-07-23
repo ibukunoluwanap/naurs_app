@@ -119,9 +119,9 @@ class _HomeState extends State<Home> {
       onWillPop: () => Future.value(false),
       child: AnnotatedRegion<SystemUiOverlayStyle>(
           value: const SystemUiOverlayStyle(
-            statusBarColor: secondary,
             statusBarBrightness: Brightness.dark,
             statusBarIconBrightness: Brightness.dark,
+            statusBarColor: secondary,
             systemNavigationBarDividerColor: Colors.transparent,
           ),
           child: Scaffold(

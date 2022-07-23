@@ -15,7 +15,7 @@ class Selector extends StatelessWidget {
     return AnnotatedRegion<SystemUiOverlayStyle>(
         value: const SystemUiOverlayStyle(
           statusBarColor: Colors.transparent,
-          statusBarBrightness: Brightness.light,
+          statusBarBrightness: Brightness.dark,
           statusBarIconBrightness: Brightness.light,
           systemNavigationBarDividerColor: Colors.transparent,
         ),
