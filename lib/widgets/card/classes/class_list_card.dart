@@ -80,18 +80,51 @@ class _ClassesListCardState extends State<ClassesListCard> {
             ),
           ],
         ),
-        trailing: IconButton(
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          onPressed: () {},
-          padding: EdgeInsets.zero,
-          constraints: const BoxConstraints(),
-          icon: const Icon(
+        trailing: GestureDetector(
+          onTapDown: (event) => showPopUpMenu(context, event),
+          child: const Icon(
             Icons.more_vert_rounded,
             color: pink,
           ),
         ),
       ),
+    );
+  }
+
+  void showPopUpMenu(context, TapDownDetails event) {
+    showMenu(
+      context: context,
+      color: grey,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+      position: RelativeRect.fromLTRB(
+        event.globalPosition.dx,
+        event.globalPosition.dy,
+        event.globalPosition.dx,
+        event.globalPosition.dy,
+      ),
+      constraints: const BoxConstraints(),
+      items: [
+        PopupMenuItem(
+          padding: const EdgeInsets.all(10.0),
+          height: 0,
+          onTap: () {},
+          textStyle: const TextStyle(
+            fontSize: 12.0,
+            color: primary,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text("Book Now"),
+              Icon(
+                Icons.done_rounded,
+                size: 18,
+                color: darkGrey,
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
@@ -305,7 +338,7 @@ Future classDetail(context, classItem, dWidth, dHeight) {
                 child: button(
                     dWidth: dWidth,
                     onPressed: () {},
-                    title: "Purchase Now",
+                    title: "Book Now",
                     color: secondary,
                     background: primary),
               )

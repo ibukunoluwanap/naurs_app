@@ -8,6 +8,7 @@ const pink = Color(0xFFf60e73);
 const skyBlue = Color(0xFF07a9b0);
 const purple = Color(0xFF4d2f90);
 const grey = Color(0xFFEEEEEE);
+const darkGrey = Color(0xFF808080);
 
 // alert colors
 const red = Color(0xFFF8D7DA);

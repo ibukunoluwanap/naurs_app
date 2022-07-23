@@ -339,7 +339,7 @@ Future classDetail(context, classItem, dWidth, dHeight) {
                 child: button(
                     dWidth: dWidth,
                     onPressed: () {},
-                    title: "Purchase Now",
+                    title: "Book Now",
                     color: secondary,
                     background: primary),
               )

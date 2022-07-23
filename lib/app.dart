@@ -22,7 +22,7 @@ class App extends StatelessWidget {
           colorScheme: ColorScheme.fromSwatch().copyWith(secondary: primary),
           textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)),
       home: _defaultHome,
-      initialRoute: "home",
+      // initialRoute: "home",
       routes: {
         "login": (_) => const Login(),
         "register": (_) => const Register(),

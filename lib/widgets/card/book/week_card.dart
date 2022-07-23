@@ -15,7 +15,7 @@ Widget weekCard(double dWidth, WeekFilter weekItem) {
       child: Text(
         weekItem.title,
         style: TextStyle(
-            fontSize: 14.0, color: weekItem.isSelected ? pink : greenText),
+            fontSize: 14.0, color: weekItem.isSelected ? pink : darkGrey),
       ),
     ),
   );
