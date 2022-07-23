@@ -111,7 +111,7 @@ class _PackagesCardState extends State<PackagesCard> {
 Future classDetail(context, classItem, dWidth, dHeight) {
   return showCupertinoModalBottomSheet(
     context: context,
-    barrierColor: primary.withOpacity(.5),
+    barrierColor: Colors.transparent,
     topRadius: const Radius.circular(20),
     builder: (context) => SizedBox(
       height: (dHeight / 100) * 80,
