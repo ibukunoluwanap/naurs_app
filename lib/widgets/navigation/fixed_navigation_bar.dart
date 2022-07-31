@@ -3,11 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:naurs/screens/account/account.dart';
-import 'package:naurs/screens/authentication/register/register.dart';
-import 'package:naurs/screens/authentication/selector.dart';
 import 'package:naurs/screens/book/book.dart';
 import 'package:naurs/screens/buy/buy.dart';
 import 'package:naurs/screens/home/home.dart';
+import 'package:naurs/screens/one_on_one/one_on_one.dart';
 import 'package:naurs/utils/colors.dart';
 import 'package:naurs/widgets/navigation/route.dart';
 
@@ -84,7 +83,7 @@ class _FixedNavigationBarState extends State<FixedNavigationBar> {
 
       if (index == 3 && widget.selectedPage != index) {
         Navigator.of(context).push(
-            NoAnimationMaterialPageRoute(builder: (_) => const Selector()));
+            NoAnimationMaterialPageRoute(builder: (_) => const OneOnOne()));
       }
 
       if (index == 4 && widget.selectedPage != index) {
