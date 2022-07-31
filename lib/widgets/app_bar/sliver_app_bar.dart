@@ -1,11 +1,16 @@
-import 'dart:math';
-
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:naurs/utils/colors.dart';
+import 'package:flutter/services.dart';
 
 Widget sliverAppBar() => SliverAppBar(
+      systemOverlayStyle: const SystemUiOverlayStyle(
+        statusBarColor: secondary,
+        statusBarBrightness: Brightness.light, // iOS (dark icons)
+        statusBarIconBrightness: Brightness.dark, // android (dark icons)
+        systemNavigationBarDividerColor: Colors.transparent, // navbar color
+      ),
       snap: true,
       floating: true,
       backgroundColor: secondary,

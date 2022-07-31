@@ -117,41 +117,34 @@ class _HomeState extends State<Home> {
 
     return WillPopScope(
       onWillPop: () => Future.value(false),
-      child: AnnotatedRegion<SystemUiOverlayStyle>(
-          value: const SystemUiOverlayStyle(
-            statusBarBrightness: Brightness.dark,
-            statusBarIconBrightness: Brightness.dark,
-            statusBarColor: secondary,
-            systemNavigationBarDividerColor: Colors.transparent,
-          ),
-          child: Scaffold(
-            backgroundColor: secondary,
-            body: Stack(
-              children: [
-                CustomScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  slivers: [
-                    sliverAppBar(),
-                    SliverToBoxAdapter(
-                      child: Container(
-                        margin: EdgeInsets.only(bottom: (dHeight / 100) * 20),
-                        child: Column(
-                          children: [
-                            _buildCategoryFilter(dWidth, dHeight),
-                            _buildTodo(dWidth, dHeight),
-                            _buildSelectorFilter(dWidth),
-                            _buildClasses(dWidth, dHeight),
-                            _buildPackages(dWidth, dHeight),
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                const FixedNavigationBar(selectedPage: 0),
+      child: Scaffold(
+        backgroundColor: secondary,
+        body: Stack(
+          children: [
+            CustomScrollView(
+              physics: const BouncingScrollPhysics(),
+              slivers: [
+                sliverAppBar(),
+                SliverToBoxAdapter(
+                  child: Container(
+                    margin: EdgeInsets.only(bottom: (dHeight / 100) * 20),
+                    child: Column(
+                      children: [
+                        _buildCategoryFilter(dWidth, dHeight),
+                        _buildTodo(dWidth, dHeight),
+                        _buildSelectorFilter(dWidth),
+                        _buildClasses(dWidth, dHeight),
+                        _buildPackages(dWidth, dHeight),
+                      ],
+                    ),
+                  ),
+                )
               ],
             ),
-          )),
+            const FixedNavigationBar(selectedPage: 0),
+          ],
+        ),
+      ),
     );
   }
 

@@ -27,9 +27,9 @@ class _RegisterState extends State<Register> {
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
         statusBarBrightness: Brightness.light,
         statusBarIconBrightness: Brightness.light,
-        statusBarColor: Colors.transparent,
         systemNavigationBarDividerColor: Colors.transparent,
       ),
       child: Scaffold(

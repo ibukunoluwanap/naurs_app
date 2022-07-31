@@ -43,9 +43,9 @@ class _ExpectationState extends State<Expectation> {
       onWillPop: () => Future.value(false),
       child: AnnotatedRegion<SystemUiOverlayStyle>(
           value: const SystemUiOverlayStyle(
+            statusBarColor: Colors.transparent,
             statusBarBrightness: Brightness.light,
             statusBarIconBrightness: Brightness.dark,
-            statusBarColor: Colors.transparent,
             systemNavigationBarDividerColor: Colors.transparent,
           ),
           child: Scaffold(

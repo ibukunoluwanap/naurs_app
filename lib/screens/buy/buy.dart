@@ -102,41 +102,34 @@ class _BuyState extends State<Buy> {
 
     return WillPopScope(
       onWillPop: () => Future.value(false),
-      child: AnnotatedRegion<SystemUiOverlayStyle>(
-          value: const SystemUiOverlayStyle(
-            statusBarBrightness: Brightness.light,
-            statusBarIconBrightness: Brightness.dark,
-            statusBarColor: secondary,
-            systemNavigationBarDividerColor: Colors.transparent,
-          ),
-          child: Scaffold(
-            backgroundColor: secondary,
-            body: Stack(
-              children: [
-                CustomScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  slivers: [
-                    sliverAppBar(),
-                    SliverToBoxAdapter(
-                      child: Container(
-                        margin: EdgeInsets.only(
-                            top: 10.0, bottom: (dHeight / 100) * 20),
-                        child: Column(
-                          children: [
-                            _buildSelectorFilter(dWidth),
-                            _buildClasses(dWidth, dHeight),
-                            _buildPackages(dWidth, dHeight),
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                
-                const FixedNavigationBar(selectedPage: 1),
+      child: Scaffold(
+        backgroundColor: secondary,
+        body: Stack(
+          children: [
+            CustomScrollView(
+              physics: const BouncingScrollPhysics(),
+              slivers: [
+                sliverAppBar(),
+                SliverToBoxAdapter(
+                  child: Container(
+                    margin: EdgeInsets.only(
+                        top: 10.0, bottom: (dHeight / 100) * 20),
+                    child: Column(
+                      children: [
+                        _buildSelectorFilter(dWidth),
+                        _buildClasses(dWidth, dHeight),
+                        _buildPackages(dWidth, dHeight),
+                      ],
+                    ),
+                  ),
+                )
               ],
             ),
-          )),
+
+            const FixedNavigationBar(selectedPage: 1),
+          ],
+        ),
+      ),
     );
   }
 

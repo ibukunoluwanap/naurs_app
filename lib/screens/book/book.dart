@@ -98,32 +98,25 @@ class _BookState extends State<Book> {
 
     return WillPopScope(
       onWillPop: () => Future.value(false),
-      child: AnnotatedRegion<SystemUiOverlayStyle>(
-          value: const SystemUiOverlayStyle(
-            statusBarBrightness: Brightness.light,
-            statusBarIconBrightness: Brightness.dark,
-            statusBarColor: secondary,
-            systemNavigationBarDividerColor: Colors.transparent,
-          ),
-          child: Scaffold(
-            backgroundColor: secondary,
-            body: Stack(
-              children: [
-                CustomScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  slivers: [
-                    sliverAppBar(),
-                    _buildCalendar(dWidth, dHeight),
-                    _buildDate(),
-                    _buildClasses(dWidth, dHeight),
-                    SliverPadding(
-                        padding: EdgeInsets.only(bottom: (dHeight / 100) * 20))
-                  ],
-                ),
-                const FixedNavigationBar(selectedPage: 2),
+      child: Scaffold(
+        backgroundColor: secondary,
+        body: Stack(
+          children: [
+            CustomScrollView(
+              physics: const BouncingScrollPhysics(),
+              slivers: [
+                sliverAppBar(),
+                _buildCalendar(dWidth, dHeight),
+                _buildDate(),
+                _buildClasses(dWidth, dHeight),
+                SliverPadding(
+                    padding: EdgeInsets.only(bottom: (dHeight / 100) * 20))
               ],
             ),
-          )),
+            const FixedNavigationBar(selectedPage: 2),
+          ],
+        ),
+      ),
     );
   }
 

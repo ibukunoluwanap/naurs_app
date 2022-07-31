@@ -35,43 +35,36 @@ class _AccountState extends State<Account> {
 
     return WillPopScope(
       onWillPop: () => Future.value(false),
-      child: AnnotatedRegion<SystemUiOverlayStyle>(
-          value: const SystemUiOverlayStyle(
-            statusBarBrightness: Brightness.light,
-            statusBarIconBrightness: Brightness.dark,
-            statusBarColor: secondary,
-            systemNavigationBarDividerColor: Colors.transparent,
-          ),
-          child: Scaffold(
-            backgroundColor: secondary,
-            body: Stack(
-              children: [
-                CustomScrollView(
-                  physics: const BouncingScrollPhysics(),
-                  slivers: [
-                    sliverAppBar(),
-                    SliverToBoxAdapter(
-                      child: Container(
-                        margin: const EdgeInsets.only(top: 10.0, bottom: 50.0),
-                        child: Column(
-                          children: const [
-                            Text("Account"),
-                            Icon(
-                              Icons.person,
-                              size: 50,
-                              color: grey,
-                            )
-                          ],
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                
-                const FixedNavigationBar(selectedPage: 4),
+      child: Scaffold(
+        backgroundColor: secondary,
+        body: Stack(
+          children: [
+            CustomScrollView(
+              physics: const BouncingScrollPhysics(),
+              slivers: [
+                sliverAppBar(),
+                SliverToBoxAdapter(
+                  child: Container(
+                    margin: const EdgeInsets.only(top: 10.0, bottom: 50.0),
+                    child: Column(
+                      children: const [
+                        Text("Account"),
+                        Icon(
+                          Icons.person,
+                          size: 50,
+                          color: grey,
+                        )
+                      ],
+                    ),
+                  ),
+                )
               ],
             ),
-          )),
+
+            const FixedNavigationBar(selectedPage: 4),
+          ],
+        ),
+      ),
     );
   }
 }
