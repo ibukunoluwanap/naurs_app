@@ -124,14 +124,13 @@ Future classDetail(context, instructorItem, dWidth, dHeight) {
                           Text(
                             "${instructorItem.firstName} ${instructorItem.lastName}",
                             overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                                fontSize: 16, color: primary),
+                            style:
+                                const TextStyle(fontSize: 16, color: primary),
                           ),
                           Text(
                             "${instructorItem.role}",
                             overflow: TextOverflow.ellipsis,
-                            style:
-                            const TextStyle(fontSize: 10, color: pink),
+                            style: const TextStyle(fontSize: 10, color: pink),
                           ),
                           Text(
                             instructorItem.category,
@@ -147,78 +146,6 @@ Future classDetail(context, instructorItem, dWidth, dHeight) {
                   ],
                 ),
               ),
-              // Stack(
-              //   children: [
-              //     Container(
-              //       width: dWidth,
-              //       height: (dHeight / 100) * 25,
-              //       decoration: BoxDecoration(
-              //         color: primary,
-              //         borderRadius: const BorderRadius.only(
-              //           topLeft: Radius.circular(20.0),
-              //           topRight: Radius.circular(20.0),
-              //           bottomLeft: Radius.circular(10.0),
-              //           bottomRight: Radius.circular(10.0),
-              //         ),
-              //         image: DecorationImage(
-              //             image: AssetImage(instructorItem.image),
-              //             fit: BoxFit.cover),
-              //       ),
-              //     ),
-              //     Positioned(
-              //       bottom: 0,
-              //       left: 0,
-              //       child: BlurryContainer(
-              //         blur: 4,
-              //         width: dWidth,
-              //         color: primary.withOpacity(.5),
-              //         padding: const EdgeInsets.symmetric(
-              //             vertical: 5.0, horizontal: 8.0),
-              //         borderRadius: BorderRadius.circular(10.0),
-              //         child: Row(
-              //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //           children: [
-              //             Column(
-              //               crossAxisAlignment: CrossAxisAlignment.start,
-              //               children: [
-              //                 Text(
-              //                   "${instructorItem.firstName} ${instructorItem.lastName}",
-              //                   overflow: TextOverflow.ellipsis,
-              //                   style: const TextStyle(
-              //                       fontSize: 16, color: secondary),
-              //                 ),
-              //                 Text(
-              //                   "${instructorItem.role}",
-              //                   overflow: TextOverflow.ellipsis,
-              //                   style:
-              //                       const TextStyle(fontSize: 10, color: pink),
-              //                 ),
-              //                 Text(
-              //                   instructorItem.category,
-              //                   overflow: TextOverflow.ellipsis,
-              //                   style: const TextStyle(
-              //                       fontSize: 8,
-              //                       fontWeight: FontWeight.w100,
-              //                       color: grey),
-              //                 ),
-              //               ],
-              //             ),
-              //             IconButton(
-              //               padding: EdgeInsets.zero,
-              //               constraints: const BoxConstraints(),
-              //               onPressed: () {},
-              //               icon: const Icon(
-              //                 Icons.ios_share_rounded,
-              //                 color: pink,
-              //                 size: 20.0,
-              //               ),
-              //             )
-              //           ],
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
               Container(
                 constraints: BoxConstraints(maxHeight: (dHeight / 100) * 30),
                 margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
@@ -228,6 +155,56 @@ Future classDetail(context, instructorItem, dWidth, dHeight) {
                     instructorItem.desc,
                     style: const TextStyle(fontSize: 10.0, color: primary),
                   ),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
+                child: const Text(
+                  "Instructor's Class(es)",
+                  style: TextStyle(
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.bold,
+                      color: primary),
+                ),
+              ),
+              Container(
+                constraints: BoxConstraints(maxHeight: (dHeight / 100) * 15),
+                margin: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 20.0),
+                padding: const EdgeInsets.all(10.0),
+                decoration: BoxDecoration(
+                  color: grey,
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    itemCount: 10,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        margin: const EdgeInsets.only(bottom: 10.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Class name $index",
+                              style:
+                              const TextStyle(color: primary, fontSize: 12),
+                            ),
+                            const Divider(),
+                          ],
+                        ),
+                      );
+                    }),
+              ),
+              Container(
+                margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
+                child: const Text(
+                  "Calendar",
+                  style: TextStyle(
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.bold,
+                      color: primary),
                 ),
               ),
               Padding(

@@ -304,7 +304,7 @@ Future classDetail(context, classItem, dWidth, dHeight) {
               Container(
                 constraints: BoxConstraints(maxHeight: (dHeight / 100) * 15),
                 margin: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 20.0),
-                padding: const EdgeInsets.all(15.0),
+                padding: const EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
                   color: grey,
                   borderRadius: BorderRadius.circular(10.0),
@@ -315,20 +315,19 @@ Future classDetail(context, classItem, dWidth, dHeight) {
                     shrinkWrap: true,
                     itemCount: 10,
                     itemBuilder: (context, index) {
-                      return Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            "• ",
-                          ),
-                          Expanded(
-                            child: Text(
-                              "$index",
-                              style:
-                                  const TextStyle(color: primary, fontSize: 12),
+                      return Container(
+                        margin: const EdgeInsets.only(bottom: 10.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Benefit $index",
+                              style: const TextStyle(
+                                  color: primary, fontSize: 12),
                             ),
-                          )
-                        ],
+                            const Divider(),
+                          ],
+                        ),
                       );
                     }),
               ),
