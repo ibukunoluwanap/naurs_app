@@ -1,6 +1,4 @@
-import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:naurs/utils/colors.dart';
 import 'package:naurs/utils/html_parse.dart';
@@ -49,7 +47,7 @@ class _InstructorsCardState extends State<InstructorsCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  instructorItem.name,
+                  "${instructorItem.firstName} ${instructorItem.lastName}",
                   style: const TextStyle(
                     fontSize: 10,
                     color: primary,
@@ -58,7 +56,7 @@ class _InstructorsCardState extends State<InstructorsCard> {
                   ),
                 ),
                 Text(
-                  instructorItem.name,
+                  instructorItem.role,
                   style: const TextStyle(
                     fontSize: 8,
                     color: pink,
@@ -88,7 +86,7 @@ class _InstructorsCardState extends State<InstructorsCard> {
 Future classDetail(context, instructorItem, dWidth, dHeight) {
   return showCupertinoModalBottomSheet(
     context: context,
-    barrierColor: Colors.transparent,
+    barrierColor: primary.withOpacity(0.25),
     topRadius: const Radius.circular(20),
     builder: (context) => SizedBox(
       height: (dHeight / 100) * 80,
@@ -99,78 +97,128 @@ Future classDetail(context, instructorItem, dWidth, dHeight) {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Stack(
-                children: [
-                  Container(
-                    width: dWidth,
-                    height: (dHeight / 100) * 25,
-                    decoration: BoxDecoration(
-                      color: primary,
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(20.0),
-                        topRight: Radius.circular(20.0),
-                        bottomLeft: Radius.circular(10.0),
-                        bottomRight: Radius.circular(10.0),
-                      ),
-                      image: DecorationImage(
-                          image: AssetImage(instructorItem.image),
-                          fit: BoxFit.cover),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    left: 0,
-                    child: BlurryContainer(
-                      blur: 4,
-                      width: dWidth,
-                      color: primary.withOpacity(.5),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 5.0, horizontal: 8.0),
-                      borderRadius: BorderRadius.circular(10.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                instructorItem.name,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
-                                    fontSize: 16, color: secondary),
-                              ),
-                              Text(
-                                "${instructorItem.category} | ${instructorItem.price} AED",
-                                overflow: TextOverflow.ellipsis,
-                                style:
-                                    const TextStyle(fontSize: 10, color: pink),
-                              ),
-                              Text(
-                                instructorItem.updatedOn,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
-                                    fontSize: 8,
-                                    fontWeight: FontWeight.w100,
-                                    color: grey),
-                              ),
-                            ],
+              Container(
+                height: (dHeight / 100) * 13,
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 1.0, color: pink),
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(instructorItem.image),
                           ),
-                          IconButton(
-                            padding: EdgeInsets.zero,
-                            constraints: const BoxConstraints(),
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.ios_share_rounded,
-                              color: pink,
-                              size: 20.0,
-                            ),
-                          )
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 7,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "${instructorItem.firstName} ${instructorItem.lastName}",
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                                fontSize: 16, color: primary),
+                          ),
+                          Text(
+                            "${instructorItem.role}",
+                            overflow: TextOverflow.ellipsis,
+                            style:
+                            const TextStyle(fontSize: 10, color: pink),
+                          ),
+                          Text(
+                            instructorItem.category,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                                fontSize: 8,
+                                fontWeight: FontWeight.w100,
+                                color: darkGrey),
+                          ),
                         ],
                       ),
-                    ),
-                  ),
-                ],
+                    )
+                  ],
+                ),
               ),
+              // Stack(
+              //   children: [
+              //     Container(
+              //       width: dWidth,
+              //       height: (dHeight / 100) * 25,
+              //       decoration: BoxDecoration(
+              //         color: primary,
+              //         borderRadius: const BorderRadius.only(
+              //           topLeft: Radius.circular(20.0),
+              //           topRight: Radius.circular(20.0),
+              //           bottomLeft: Radius.circular(10.0),
+              //           bottomRight: Radius.circular(10.0),
+              //         ),
+              //         image: DecorationImage(
+              //             image: AssetImage(instructorItem.image),
+              //             fit: BoxFit.cover),
+              //       ),
+              //     ),
+              //     Positioned(
+              //       bottom: 0,
+              //       left: 0,
+              //       child: BlurryContainer(
+              //         blur: 4,
+              //         width: dWidth,
+              //         color: primary.withOpacity(.5),
+              //         padding: const EdgeInsets.symmetric(
+              //             vertical: 5.0, horizontal: 8.0),
+              //         borderRadius: BorderRadius.circular(10.0),
+              //         child: Row(
+              //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //           children: [
+              //             Column(
+              //               crossAxisAlignment: CrossAxisAlignment.start,
+              //               children: [
+              //                 Text(
+              //                   "${instructorItem.firstName} ${instructorItem.lastName}",
+              //                   overflow: TextOverflow.ellipsis,
+              //                   style: const TextStyle(
+              //                       fontSize: 16, color: secondary),
+              //                 ),
+              //                 Text(
+              //                   "${instructorItem.role}",
+              //                   overflow: TextOverflow.ellipsis,
+              //                   style:
+              //                       const TextStyle(fontSize: 10, color: pink),
+              //                 ),
+              //                 Text(
+              //                   instructorItem.category,
+              //                   overflow: TextOverflow.ellipsis,
+              //                   style: const TextStyle(
+              //                       fontSize: 8,
+              //                       fontWeight: FontWeight.w100,
+              //                       color: grey),
+              //                 ),
+              //               ],
+              //             ),
+              //             IconButton(
+              //               padding: EdgeInsets.zero,
+              //               constraints: const BoxConstraints(),
+              //               onPressed: () {},
+              //               icon: const Icon(
+              //                 Icons.ios_share_rounded,
+              //                 color: pink,
+              //                 size: 20.0,
+              //               ),
+              //             )
+              //           ],
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
               Container(
                 constraints: BoxConstraints(maxHeight: (dHeight / 100) * 30),
                 margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
@@ -182,118 +230,12 @@ Future classDetail(context, instructorItem, dWidth, dHeight) {
                   ),
                 ),
               ),
-              Container(
-                constraints: BoxConstraints(maxHeight: (dHeight / 100) * 30),
-                margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
-                padding: const EdgeInsets.all(15.0),
-                decoration: BoxDecoration(
-                    color: grey, borderRadius: BorderRadius.circular(10.0)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: const [
-                        Icon(Icons.schedule, color: pink),
-                        SizedBox(width: 10.0),
-                        Text(
-                          "Total sessions",
-                          style: TextStyle(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.bold,
-                              color: primary),
-                        ),
-                      ],
-                    ),
-                    Text(
-                      "${instructorItem.sessions}",
-                      style: const TextStyle(
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.bold,
-                          color: primary),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                constraints: BoxConstraints(maxHeight: (dHeight / 100) * 30),
-                margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
-                padding: const EdgeInsets.all(15.0),
-                decoration: BoxDecoration(
-                    color: grey, borderRadius: BorderRadius.circular(10.0)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: const [
-                        Icon(FontAwesomeIcons.building,
-                            color: pink, size: 20.0),
-                        SizedBox(width: 10.0),
-                        Text(
-                          "Available space",
-                          style: TextStyle(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.bold,
-                              color: primary),
-                        ),
-                      ],
-                    ),
-                    Text(
-                      "${instructorItem.availableSpace}",
-                      style: const TextStyle(
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.bold,
-                          color: primary),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
-                child: const Text(
-                  "Benefits",
-                  style: TextStyle(
-                      fontSize: 12.0,
-                      fontWeight: FontWeight.bold,
-                      color: primary),
-                ),
-              ),
-              Container(
-                constraints: BoxConstraints(maxHeight: (dHeight / 100) * 15),
-                margin: const EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 20.0),
-                padding: const EdgeInsets.all(15.0),
-                decoration: BoxDecoration(
-                  color: grey,
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            "• ",
-                          ),
-                          Expanded(
-                            child: Text(
-                              "$index",
-                              style:
-                                  const TextStyle(color: primary, fontSize: 12),
-                            ),
-                          )
-                        ],
-                      );
-                    }),
-              ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 30.0),
                 child: button(
                     dWidth: dWidth,
                     onPressed: () {},
-                    title: "Book Now",
+                    title: "Send Schedule",
                     color: secondary,
                     background: primary),
               )

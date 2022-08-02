@@ -19,32 +19,30 @@ class OneOnOne extends StatefulWidget {
 class _OneOnOneState extends State<OneOnOne> {
   bool isScreenLoaded = false;
 
-  List<ClassesModel> classesList = <ClassesModel>[];
+  List<InstructorsModel> instructorsList = <InstructorsModel>[];
 
   @override
   void initState() {
     super.initState();
     // Test data
-    classesList.add(ClassesModel(
-        isMine: true,
+    instructorsList.add(InstructorsModel(
         image: "assets/img/test1.png",
-        name: "Class Name",
-        sessions: 2,
+        username: "ibukunoluwanap",
+        firstName: "Ibukunoluwa",
+        lastName: "Naphtali",
         category: "Dance",
-        price: 170.00,
-        availableSpace: 10,
-        updatedOn: "20/4/2022",
+        role: "Dance Instructor",
+        createdOn: "20/4/2022",
         desc:
             """Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante."""));
-    classesList.add(ClassesModel(
-        isMine: false,
+    instructorsList.add(InstructorsModel(
         image: "assets/img/test2.png",
-        name: "Class Name",
-        sessions: 3,
+        username: "pandoraloveth",
+        firstName: "Loveth",
+        lastName: "Ifebunso",
         category: "Fine Arts",
-        price: 250.00,
-        availableSpace: 6,
-        updatedOn: "20/4/2022",
+        role: "Arts Instructor",
+        createdOn: "20/4/2022",
         desc:
             """ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante. vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna dapibus non sem ante. Aenean consequat ante. Curabitur ullamcorper aliquet nisl, vitae condimentum justo luctus in. Nunc ultrices vestibulum ligula, gravida gravida urna. ligula, gravida gravida urna dapibus et. Aliquam non sem ante. Aenean consequat ante."""));
 
@@ -140,10 +138,10 @@ class _OneOnOneState extends State<OneOnOne> {
     // setting default return widget
     Widget innerFinalWidget = const SizedBox.shrink();
 
-    innerFinalWidget = classesList.isNotEmpty
+    innerFinalWidget = instructorsList.isNotEmpty
         ? SliverList(
             delegate: SliverChildBuilderDelegate((context, index) {
-              var classItem = classesList[index];
+              var classItem = instructorsList[index];
               return isScreenLoaded
                   ? Container(
                       margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
@@ -151,7 +149,7 @@ class _OneOnOneState extends State<OneOnOne> {
                   : Container(
                       margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
                       child: RectangleShimmer(height: (dHeight / 100) * 8));
-            }, childCount: classesList.length),
+            }, childCount: instructorsList.length),
           )
         : SliverToBoxAdapter(
             child: Container(
@@ -180,7 +178,7 @@ class _OneOnOneState extends State<OneOnOne> {
   Future filterAction(context, dWidth, dHeight) {
     return showCupertinoModalBottomSheet(
       context: context,
-      barrierColor: primary.withOpacity(0.5),
+      barrierColor: primary.withOpacity(0.25),
       topRadius: const Radius.circular(20),
       builder: (context) => SizedBox(
         height: (dHeight / 100) * 40,
@@ -189,120 +187,124 @@ class _OneOnOneState extends State<OneOnOne> {
           body: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             padding: const EdgeInsets.all(10.0),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              const Padding(
+                padding: EdgeInsets.only(bottom: 10.0),
+                child: Text(
+                  "Filter Instructor List",
+                  style: TextStyle(color: primary, fontSize: 16.0),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(bottom: 10.0),
-                    child: Text("Filter Instructor List", style: TextStyle(color: primary, fontSize: 16.0),),
+                  Expanded(
+                    child: button(
+                      onPressed: () {},
+                      title: 'A - Z Order',
+                      dWidth: dWidth,
+                      background: primary,
+                      color: secondary,
+                      padding: 3.0,
+                      fontSize: 16.0,
+                      borderRadius: 5.0,
+                    ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: button(
-                          onPressed: () {},
-                          title: 'A - Z Order',
-                          dWidth: dWidth,
-                          background: primary,
-                          color: secondary,
-                          padding: 3.0,
-                          fontSize: 16.0,
-                          borderRadius: 5.0,
-                        ),
-                      ),
-                      const SizedBox(width: 10.0),
-                      Expanded(
-                        child: button(
-                          onPressed: () {},
-                          title: 'Z - A Order',
-                          dWidth: dWidth,
-                          background: Colors.transparent,
-                          color: primary,
-                          borderColor: primary,
-                          padding: 3.0,
-                          fontSize: 16.0,
-                          borderRadius: 5.0,
-                        ),
-                      ),
-                    ],
+                  const SizedBox(width: 10.0),
+                  Expanded(
+                    child: button(
+                      onPressed: () {},
+                      title: 'Z - A Order',
+                      dWidth: dWidth,
+                      background: Colors.transparent,
+                      color: primary,
+                      borderColor: primary,
+                      padding: 3.0,
+                      fontSize: 16.0,
+                      borderRadius: 5.0,
+                    ),
                   ),
-                  const SizedBox(height: 5.0),
-                  const Divider(color: darkGrey),
-                  const SizedBox(height: 5.0),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: button(
-                          onPressed: () {},
-                          title: 'Fitness',
-                          dWidth: dWidth,
-                          background: Colors.transparent,
-                          color: darkGrey,
-                          padding: 3.0,
-                          fontSize: 16.0,
-                          borderRadius: 5.0,
-                        ),
-                      ),
-                      const SizedBox(width: 10.0),
-                      Expanded(
-                        child: button(
-                          onPressed: () {},
-                          title: 'Music',
-                          dWidth: dWidth,
-                          background: primary,
-                          color: secondary,
-                          padding: 3.0,
-                          fontSize: 16.0,
-                          borderRadius: 5.0,
-                        ),
-                      ),
-                    ],
+                ],
+              ),
+              const SizedBox(height: 5.0),
+              const Divider(color: darkGrey),
+              const SizedBox(height: 5.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: button(
+                      onPressed: () {},
+                      title: 'Fitness',
+                      dWidth: dWidth,
+                      background: Colors.transparent,
+                      color: darkGrey,
+                      padding: 3.0,
+                      fontSize: 16.0,
+                      borderRadius: 5.0,
+                    ),
                   ),
-                  const SizedBox(height: 10.0),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: button(
-                          onPressed: () {},
-                          title: 'Fine Arts',
-                          dWidth: dWidth,
-                          background: Colors.transparent,
-                          color: darkGrey,
-                          padding: 3.0,
-                          fontSize: 16.0,
-                          borderRadius: 5.0,
-                        ),
-                      ),
-                      const SizedBox(width: 10.0),
-                      Expanded(
-                        child: button(
-                          onPressed: () {},
-                          title: 'Dance',
-                          dWidth: dWidth,
-                          background: Colors.transparent,
-                          color: darkGrey,
-                          padding: 3.0,
-                          fontSize: 16.0,
-                          borderRadius: 5.0,
-                        ),
-                      ),
-                    ],
+                  const SizedBox(width: 10.0),
+                  Expanded(
+                    child: button(
+                      onPressed: () {},
+                      title: 'Music',
+                      dWidth: dWidth,
+                      background: primary,
+                      color: secondary,
+                      padding: 3.0,
+                      fontSize: 16.0,
+                      borderRadius: 5.0,
+                    ),
                   ),
-                  const SizedBox(height: 20.0),
-                  button(
-                    onPressed: () {},
-                    title: 'Save',
-                    dWidth: dWidth,
-                    background: pink,
-                    color: secondary,
-                    padding: 3.0,
-                    fontSize: 18.0,
-                    borderRadius: 5.0,
+                ],
+              ),
+              const SizedBox(height: 10.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: button(
+                      onPressed: () {},
+                      title: 'Fine Arts',
+                      dWidth: dWidth,
+                      background: Colors.transparent,
+                      color: darkGrey,
+                      padding: 3.0,
+                      fontSize: 16.0,
+                      borderRadius: 5.0,
+                    ),
                   ),
-                ]),
+                  const SizedBox(width: 10.0),
+                  Expanded(
+                    child: button(
+                      onPressed: () {},
+                      title: 'Dance',
+                      dWidth: dWidth,
+                      background: Colors.transparent,
+                      color: darkGrey,
+                      padding: 3.0,
+                      fontSize: 16.0,
+                      borderRadius: 5.0,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20.0),
+              button(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                title: 'Save',
+                dWidth: dWidth,
+                background: pink,
+                color: secondary,
+                padding: 3.0,
+                fontSize: 18.0,
+                borderRadius: 5.0,
+              ),
+            ]),
           ),
         ),
       ),

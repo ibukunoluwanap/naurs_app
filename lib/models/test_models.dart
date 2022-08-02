@@ -55,3 +55,27 @@ class PackagesModel {
     this.isActive = true,
   });
 }
+
+class InstructorsModel {
+  String image;
+  String username;
+  String firstName;
+  String lastName;
+  String category;
+  String role;
+  String createdOn;
+  String desc;
+  bool isActive;
+
+  InstructorsModel({
+    required this.image,
+    required this.username,
+    required this.firstName,
+    required this.lastName,
+    required this.category,
+    required this.role,
+    required this.createdOn,
+    required this.desc,
+    this.isActive = true,
+  });
+}
