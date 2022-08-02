@@ -5,9 +5,9 @@ import 'package:naurs/models/test_models.dart';
 import 'package:naurs/utils/colors.dart';
 import 'package:naurs/widgets/app_bar/sliver_app_bar.dart';
 import 'package:naurs/widgets/button/button.dart';
-import 'package:naurs/widgets/card/classes/class_list_card.dart';
 import 'package:naurs/widgets/navigation/fixed_navigation_bar.dart';
 import 'package:naurs/widgets/shimmer/rectangle.dart';
+import 'package:naurs/widgets/card/instructors/instructors_card.dart';
 
 class OneOnOne extends StatefulWidget {
   const OneOnOne({Key? key}) : super(key: key);
@@ -147,7 +147,7 @@ class _OneOnOneState extends State<OneOnOne> {
               return isScreenLoaded
                   ? Container(
                       margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
-                      child: ClassesListCard(classItem: classItem))
+                      child: InstructorsCard(instructorItem: classItem))
                   : Container(
                       margin: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
                       child: RectangleShimmer(height: (dHeight / 100) * 8));

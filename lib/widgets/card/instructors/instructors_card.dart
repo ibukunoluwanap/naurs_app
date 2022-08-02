@@ -6,25 +6,25 @@ import 'package:naurs/utils/colors.dart';
 import 'package:naurs/utils/html_parse.dart';
 import 'package:naurs/widgets/button/button.dart';
 
-class ClassesListCard extends StatefulWidget {
-  const ClassesListCard({Key? key, this.classItem}) : super(key: key);
-  final dynamic classItem;
+class InstructorsCard extends StatefulWidget {
+  const InstructorsCard({Key? key, this.instructorItem}) : super(key: key);
+  final dynamic instructorItem;
 
   @override
-  State<ClassesListCard> createState() => _ClassesListCardState();
+  State<InstructorsCard> createState() => _InstructorsCardState();
 }
 
-class _ClassesListCardState extends State<ClassesListCard> {
+class _InstructorsCardState extends State<InstructorsCard> {
   @override
   Widget build(BuildContext context) {
     final dHeight = MediaQuery.of(context).size.height;
     final dWidth = MediaQuery.of(context).size.width;
-    var classItem = widget.classItem;
+    var instructorItem = widget.instructorItem;
 
     return GestureDetector(
       onTap: () {
         Feedback.forTap(context);
-        classDetail(context, classItem, dWidth, dHeight);
+        classDetail(context, instructorItem, dWidth, dHeight);
       },
       child: ListTile(
         tileColor: grey,
@@ -35,10 +35,10 @@ class _ClassesListCardState extends State<ClassesListCard> {
           width: (dWidth / 100) * 15,
           decoration: BoxDecoration(
             border: Border.all(width: 1.0, color: pink),
-            shape: BoxShape.circle,
+            borderRadius: BorderRadius.circular(5.0),
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage(classItem.image),
+              image: AssetImage(instructorItem.image),
             ),
           ),
         ),
@@ -49,7 +49,7 @@ class _ClassesListCardState extends State<ClassesListCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  classItem.name,
+                  instructorItem.name,
                   style: const TextStyle(
                     fontSize: 10,
                     color: primary,
@@ -58,7 +58,7 @@ class _ClassesListCardState extends State<ClassesListCard> {
                   ),
                 ),
                 Text(
-                  classItem.name,
+                  instructorItem.name,
                   style: const TextStyle(
                     fontSize: 8,
                     color: pink,
@@ -66,7 +66,7 @@ class _ClassesListCardState extends State<ClassesListCard> {
                   ),
                 ),
                 Text(
-                  parseHtmlString(classItem.desc),
+                  parseHtmlString(instructorItem.desc),
                   maxLines: 2,
                   style: const TextStyle(
                     fontSize: 8,
@@ -79,57 +79,13 @@ class _ClassesListCardState extends State<ClassesListCard> {
             ),
           ],
         ),
-        trailing: GestureDetector(
-          onTapDown: (event) => showPopUpMenu(context, event),
-          child: const Icon(
-            Icons.more_vert_rounded,
-            color: pink,
-          ),
-        ),
       ),
-    );
-  }
-
-  void showPopUpMenu(context, TapDownDetails event) {
-    showMenu(
-      context: context,
-      color: grey,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-      position: RelativeRect.fromLTRB(
-        event.globalPosition.dx,
-        event.globalPosition.dy,
-        event.globalPosition.dx,
-        event.globalPosition.dy,
-      ),
-      constraints: const BoxConstraints(),
-      items: [
-        PopupMenuItem(
-          padding: const EdgeInsets.all(10.0),
-          height: 0,
-          onTap: () {},
-          textStyle: const TextStyle(
-            fontSize: 12.0,
-            color: primary,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text("Book Now"),
-              Icon(
-                Icons.done_rounded,
-                size: 18,
-                color: darkGrey,
-              ),
-            ],
-          ),
-        ),
-      ],
     );
   }
 }
 
 // class detail information
-Future classDetail(context, classItem, dWidth, dHeight) {
+Future classDetail(context, instructorItem, dWidth, dHeight) {
   return showCupertinoModalBottomSheet(
     context: context,
     barrierColor: Colors.transparent,
@@ -157,7 +113,7 @@ Future classDetail(context, classItem, dWidth, dHeight) {
                         bottomRight: Radius.circular(10.0),
                       ),
                       image: DecorationImage(
-                          image: AssetImage(classItem.image),
+                          image: AssetImage(instructorItem.image),
                           fit: BoxFit.cover),
                     ),
                   ),
@@ -178,19 +134,19 @@ Future classDetail(context, classItem, dWidth, dHeight) {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                classItem.name,
+                                instructorItem.name,
                                 overflow: TextOverflow.ellipsis,
                                 style: const TextStyle(
                                     fontSize: 16, color: secondary),
                               ),
                               Text(
-                                "${classItem.category} | ${classItem.price} AED",
+                                "${instructorItem.category} | ${instructorItem.price} AED",
                                 overflow: TextOverflow.ellipsis,
                                 style:
                                     const TextStyle(fontSize: 10, color: pink),
                               ),
                               Text(
-                                classItem.updatedOn,
+                                instructorItem.updatedOn,
                                 overflow: TextOverflow.ellipsis,
                                 style: const TextStyle(
                                     fontSize: 8,
@@ -221,7 +177,7 @@ Future classDetail(context, classItem, dWidth, dHeight) {
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),
                   child: Text(
-                    classItem.desc,
+                    instructorItem.desc,
                     style: const TextStyle(fontSize: 10.0, color: primary),
                   ),
                 ),
@@ -249,7 +205,7 @@ Future classDetail(context, classItem, dWidth, dHeight) {
                       ],
                     ),
                     Text(
-                      "${classItem.sessions}",
+                      "${instructorItem.sessions}",
                       style: const TextStyle(
                           fontSize: 12.0,
                           fontWeight: FontWeight.bold,
@@ -282,7 +238,7 @@ Future classDetail(context, classItem, dWidth, dHeight) {
                       ],
                     ),
                     Text(
-                      "${classItem.availableSpace}",
+                      "${instructorItem.availableSpace}",
                       style: const TextStyle(
                           fontSize: 12.0,
                           fontWeight: FontWeight.bold,
